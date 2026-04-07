@@ -1,0 +1,98 @@
+# Job Application System — User Configuration
+# Copy this to config.yml and fill in your details.
+# These values replace all {{PLACEHOLDER}} tokens in generator scripts and agents.
+
+# ── Personal Info ──
+name: Your Full Name
+first_name: YourFirstName
+email: your@email.com
+phone: "(555) 555-5555"
+location: City, ST
+
+# ── Links ──
+linkedin: https://linkedin.com/in/yourprofile
+portfolio: https://yourportfolio.com
+github: https://github.com/yourhandle  # optional
+
+# ── Projects (optional, for linking in resumes/cover letters) ──
+projects:
+  - name: "Project Name"
+    url: "https://yourproject.com"
+    description: "One-line description"
+  - name: "Project 2 Name"
+    url: "https://project2.com"
+    description: "One-line description"
+
+# ── Education ──
+education:
+  graduate:
+    degree: "Master of Your Degree"
+    school: "Your University"
+    gpa: "3.X/4.0"
+    dates: "Start – End"
+    coursework: "Relevant Course 1, Course 2, Course 3"
+  undergraduate:
+    degree: "Bachelor of Your Degree"
+    school: "Your Undergrad"
+    gpa: "3.X/4.0"
+    dates: "Start – End"
+
+# ── Work Experience ──
+experience:
+  current:
+    title: "Your Current Title"
+    company: "Current Company"
+    location: "City, ST"
+    dates: "Start Date – Present"
+  previous:
+    - title: "Previous Title"
+      company: "Previous Company"
+      location: "City, ST"
+      dates: "Start – End"
+    - title: "Earlier Title"
+      company: "Earlier Company"
+      location: "City, Country"
+      dates: "Start – End"
+
+# ── Certifications ──
+certifications:
+  - "Certification 1"
+  - "Certification 2"
+  - "Certification 3"
+
+# ── Skills (organized by category) ──
+skills:
+  - category: "Domain Expertise"
+    items: "Skill A, Skill B, Skill C"
+  - category: "Technical"
+    items: "Tool A, Tool B, Tool C"
+  - category: "Tools"
+    items: "JIRA, Confluence, Excel, etc."
+
+# ── Master Resumes (base templates for different role types) ──
+master_resumes:
+  product_manager: "masters/pm_master.pdf"
+  business_analyst: "masters/ba_master.pdf"
+  data_analyst: "masters/da_master.pdf"
+  # Add more tracks as needed
+
+# ── Resume Folder ──
+resume_folder: "./resumes/"
+
+# ── Application Preferences ──
+preferences:
+  work_authorization: "Yes"
+  visa_sponsorship: "No"  # or "Yes, will require sponsorship"
+  willing_to_relocate: "Yes"
+  preferred_locations:
+    - New York
+    - San Francisco
+    - Remote
+
+# ── Writing Style ──
+# These control the validator and cover letter tone
+writing:
+  signoff: "Best, {{first_name}}"
+  greeting: "Hi,"
+  max_cover_letter_chars: 2000
+  use_contractions: true

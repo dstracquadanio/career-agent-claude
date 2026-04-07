@@ -1,0 +1,649 @@
+# Portal Scanner Configuration
+# Add companies to scan, with career page URLs and role filters
+# Usage: tell Claude "scan portals" or "scan jobs"
+
+# Your search preferences
+preferences:
+  locations:
+    - United States
+    - USA
+    - US
+    - Remote
+    - Hybrid
+    - New York
+    - San Francisco
+    - Chicago
+    - Austin
+    - Seattle
+    - Boston
+    - Los Angeles
+    - Denver
+    - Atlanta
+    - Miami
+    - Columbus
+    - any US city
+  role_keywords:
+    - product manager
+    - associate product manager
+    - business analyst
+    - data analyst
+    - BI analyst
+    - strategy operations
+    - strategy associate
+    - product operations
+    - business operations
+    - operations associate
+    - AI product
+    - AI analyst
+    - AI automation
+    - platform associate
+    - product analyst
+    - growth analyst
+    - analytics
+  exclude_keywords:
+    - senior staff
+    - staff engineer
+    - principal
+    - director
+    - VP
+    - head of
+    - chief
+    - 10+ years
+    - 8+ years
+  min_match_keywords: 2
+
+# Companies to scan
+# Supported portal types: greenhouse, lever, ashby, workday, custom
+portals:
+
+  # ══════════════════════════════════════
+  # FINTECH / FINANCIAL SERVICES (30)
+  # ══════════════════════════════════════
+
+  - name: Stripe
+    url: https://stripe.com/jobs/search
+    type: custom
+
+  - name: Ramp
+    url: https://jobs.ashbyhq.com/ramp
+    type: ashby
+
+  - name: Brex
+    url: https://www.brex.com/careers
+    type: custom
+
+  - name: Plaid
+    url: https://plaid.com/careers/openings/
+    type: custom
+
+  - name: Affirm
+    url: https://boards.greenhouse.io/affirm
+    type: greenhouse
+
+  - name: Mercury
+    url: https://jobs.ashbyhq.com/mercury
+    type: ashby
+
+  - name: Coinbase
+    url: https://www.coinbase.com/careers/positions
+    type: custom
+
+  - name: Robinhood
+    url: https://boards.greenhouse.io/robinhood
+    type: greenhouse
+
+  - name: SoFi
+    url: https://www.sofi.com/careers/
+    type: custom
+
+  - name: Marqeta
+    url: https://boards.greenhouse.io/marqeta
+    type: greenhouse
+
+  - name: Adyen
+    url: https://careers.adyen.com/vacancies
+    type: custom
+
+  - name: Block (Square)
+    url: https://block.xyz/careers
+    type: custom
+
+  - name: Chime
+    url: https://boards.greenhouse.io/chime
+    type: greenhouse
+
+  - name: Navan
+    url: https://boards.greenhouse.io/navan
+    type: greenhouse
+
+  - name: Carta
+    url: https://boards.greenhouse.io/carta
+    type: greenhouse
+
+  - name: Betterment
+    url: https://boards.greenhouse.io/betterment
+    type: greenhouse
+
+  - name: Wealthfront
+    url: https://boards.greenhouse.io/wealthfront
+    type: greenhouse
+
+  - name: iCapital
+    url: https://icapitalnetwork.wd1.myworkdayjobs.com/en-US/iCapital_Careers
+    type: workday
+
+  - name: EquityZen
+    url: https://www.equityzen.com/careers/
+    type: custom
+
+  - name: Pagaya
+    url: https://boards.greenhouse.io/pagaya
+    type: greenhouse
+
+  - name: Paxos
+    url: https://boards.greenhouse.io/paxos
+    type: greenhouse
+
+  - name: Gemini
+    url: https://boards.greenhouse.io/gemini
+    type: greenhouse
+
+  - name: Nasdaq
+    url: https://nasdaq.wd1.myworkdayjobs.com/en-US/US_External_Career_Site
+    type: workday
+
+  - name: Bloomberg
+    url: https://careers.bloomberg.com/job/search
+    type: custom
+
+  - name: Two Sigma
+    url: https://careers.twosigma.com/careers/SearchJobs
+    type: custom
+
+  - name: Citadel
+    url: https://www.citadel.com/careers/open-opportunities/
+    type: custom
+
+  - name: Jane Street
+    url: https://www.janestreet.com/join-jane-street/open-roles/
+    type: custom
+
+  - name: Point72
+    url: https://careers.point72.com/CSJobsList
+    type: custom
+
+  - name: Blackstone
+    url: https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers
+    type: workday
+
+  - name: KKR
+    url: https://boards.greenhouse.io/kkr
+    type: greenhouse
+
+  # ══════════════════════════════════════
+  # TECH / PRODUCT / SaaS (35)
+  # ══════════════════════════════════════
+
+  - name: Notion
+    url: https://www.notion.so/careers
+    type: custom
+
+  - name: Figma
+    url: https://boards.greenhouse.io/figma
+    type: greenhouse
+
+  - name: Vercel
+    url: https://vercel.com/careers
+    type: custom
+
+  - name: Retool
+    url: https://jobs.ashbyhq.com/retool
+    type: ashby
+
+  - name: Postman
+    url: https://www.postman.com/company/careers/open-positions/
+    type: custom
+
+  - name: MongoDB
+    url: https://www.mongodb.com/careers
+    type: custom
+
+  - name: Datadog
+    url: https://careers.datadoghq.com/all-jobs/
+    type: custom
+
+  - name: Cloudflare
+    url: https://boards.greenhouse.io/cloudflare
+    type: greenhouse
+
+  - name: HashiCorp
+    url: https://www.hashicorp.com/careers
+    type: custom
+
+  - name: Grafana Labs
+    url: https://boards.greenhouse.io/grafanalabs
+    type: greenhouse
+
+  - name: Confluent
+    url: https://careers.confluent.io/search/
+    type: custom
+
+  - name: Twilio
+    url: https://boards.greenhouse.io/twilio
+    type: greenhouse
+
+  - name: Airtable
+    url: https://boards.greenhouse.io/airtable
+    type: greenhouse
+
+  - name: Amplitude
+    url: https://boards.greenhouse.io/amplitude
+    type: greenhouse
+
+  - name: Mixpanel
+    url: https://boards.greenhouse.io/mixpanel
+    type: greenhouse
+
+  - name: Segment (Twilio)
+    url: https://boards.greenhouse.io/twilio
+    type: greenhouse
+
+  - name: Miro
+    url: https://boards.greenhouse.io/maboroshinc
+    type: greenhouse
+
+  - name: Canva
+    url: https://www.canva.com/careers/jobs/
+    type: custom
+
+  - name: Asana
+    url: https://boards.greenhouse.io/asana
+    type: greenhouse
+
+  - name: Monday.com
+    url: https://monday.com/careers/positions
+    type: custom
+
+  - name: Atlassian
+    url: https://www.atlassian.com/company/careers/all-jobs
+    type: custom
+
+  - name: HubSpot
+    url: https://boards.greenhouse.io/hubspot
+    type: greenhouse
+
+  - name: Salesforce
+    url: https://careers.salesforce.com/en/jobs/
+    type: custom
+
+  - name: ServiceNow
+    url: https://careers.servicenow.com/jobs/
+    type: custom
+
+  - name: Snowflake
+    url: https://careers.snowflake.com/us/en/search-results
+    type: custom
+
+  - name: Palantir
+    url: https://www.palantir.com/careers/
+    type: custom
+
+  - name: Databricks
+    url: https://www.databricks.com/company/careers/open-positions
+    type: custom
+
+  - name: Elastic
+    url: https://jobs.elastic.co/jobs/
+    type: custom
+
+  - name: GitLab
+    url: https://boards.greenhouse.io/gitlab
+    type: greenhouse
+
+  - name: GitHub
+    url: https://github.com/about/careers
+    type: custom
+
+  - name: Linear
+    url: https://jobs.ashbyhq.com/linear
+    type: ashby
+
+  - name: Loom
+    url: https://boards.greenhouse.io/loom
+    type: greenhouse
+
+  - name: Zapier
+    url: https://zapier.com/jobs
+    type: custom
+
+  - name: Calendly
+    url: https://boards.greenhouse.io/calendly
+    type: greenhouse
+
+  - name: Toast
+    url: https://careers.toasttab.com/jobs/search
+    type: custom
+
+  # ══════════════════════════════════════
+  # AI / ML / LLM (20)
+  # ══════════════════════════════════════
+
+  - name: Anthropic
+    url: https://boards.greenhouse.io/anthropic
+    type: greenhouse
+
+  - name: OpenAI
+    url: https://openai.com/careers/search/
+    type: custom
+
+  - name: Hugging Face
+    url: https://apply.workable.com/huggingface/
+    type: custom
+
+  - name: Cohere
+    url: https://jobs.lever.co/cohere
+    type: lever
+
+  - name: Mistral AI
+    url: https://jobs.lever.co/mistral
+    type: lever
+
+  - name: Runway
+    url: https://boards.greenhouse.io/runwayml
+    type: greenhouse
+
+  - name: Stability AI
+    url: https://stability.ai/careers
+    type: custom
+
+  - name: Perplexity
+    url: https://jobs.ashbyhq.com/perplexity
+    type: ashby
+
+  - name: Character AI
+    url: https://jobs.ashbyhq.com/character
+    type: ashby
+
+  - name: Scale AI
+    url: https://scale.com/careers
+    type: custom
+
+  - name: Weights & Biases
+    url: https://boards.greenhouse.io/wandb
+    type: greenhouse
+
+  - name: Anyscale
+    url: https://jobs.lever.co/anyscale
+    type: lever
+
+  - name: Pinecone
+    url: https://boards.greenhouse.io/pinecone
+    type: greenhouse
+
+  - name: Weaviate
+    url: https://boards.greenhouse.io/weaviate
+    type: greenhouse
+
+  - name: ElevenLabs
+    url: https://jobs.ashbyhq.com/elevenlabs
+    type: ashby
+
+  - name: Jasper AI
+    url: https://boards.greenhouse.io/jasper
+    type: greenhouse
+
+  - name: Writer
+    url: https://boards.greenhouse.io/writerai
+    type: greenhouse
+
+  - name: Moveworks
+    url: https://boards.greenhouse.io/moveworks
+    type: greenhouse
+
+  - name: Harvey AI
+    url: https://boards.greenhouse.io/harvey
+    type: greenhouse
+
+  - name: Glean
+    url: https://boards.greenhouse.io/glaboratories
+    type: greenhouse
+
+  # ══════════════════════════════════════
+  # MARKETPLACES / CONSUMER (15)
+  # ══════════════════════════════════════
+
+  - name: DoorDash
+    url: https://careers.doordash.com/
+    type: custom
+
+  - name: Instacart
+    url: https://instacart.careers/current-openings/
+    type: custom
+
+  - name: Uber
+    url: https://www.uber.com/us/en/careers/list/
+    type: custom
+
+  - name: Lyft
+    url: https://www.lyft.com/careers
+    type: custom
+
+  - name: Airbnb
+    url: https://careers.airbnb.com/positions/
+    type: custom
+
+  - name: Spotify
+    url: https://www.lifeatspotify.com/jobs
+    type: custom
+
+  - name: Pinterest
+    url: https://www.pinterestcareers.com/en/jobs/
+    type: custom
+
+  - name: Reddit
+    url: https://boards.greenhouse.io/reddit
+    type: greenhouse
+
+  - name: Discord
+    url: https://discord.com/careers
+    type: custom
+
+  - name: Etsy
+    url: https://boards.greenhouse.io/etsy
+    type: greenhouse
+
+  - name: Zillow
+    url: https://zillow.wd5.myworkdayjobs.com/en-US/Zillow_Group_External
+    type: workday
+
+  - name: Chewy
+    url: https://careers.chewy.com/us/en/search-results
+    type: custom
+
+  - name: Warby Parker
+    url: https://boards.greenhouse.io/warbyparker
+    type: greenhouse
+
+  - name: Gopuff
+    url: https://boards.greenhouse.io/gopuff
+    type: greenhouse
+
+  - name: Faire
+    url: https://boards.greenhouse.io/faire
+    type: greenhouse
+
+  # ══════════════════════════════════════
+  # HEALTHCARE / MISSION-DRIVEN (15)
+  # ══════════════════════════════════════
+
+  - name: Spring Health
+    url: https://boards.greenhouse.io/springhealth
+    type: greenhouse
+
+  - name: Hims & Hers
+    url: https://boards.greenhouse.io/himsandhers
+    type: greenhouse
+
+  - name: Ro
+    url: https://jobs.lever.co/ro
+    type: lever
+
+  - name: Oscar Health
+    url: https://boards.greenhouse.io/oscarhealth
+    type: greenhouse
+
+  - name: Noom
+    url: https://boards.greenhouse.io/noom
+    type: greenhouse
+
+  - name: Cerebral
+    url: https://boards.greenhouse.io/cerebral
+    type: greenhouse
+
+  - name: Cityblock Health
+    url: https://boards.greenhouse.io/cityblockhealth
+    type: greenhouse
+
+  - name: Alto Pharmacy
+    url: https://boards.greenhouse.io/alto
+    type: greenhouse
+
+  - name: Headway
+    url: https://boards.greenhouse.io/headway
+    type: greenhouse
+
+  - name: Thirty Madison
+    url: https://boards.greenhouse.io/thirtymadison
+    type: greenhouse
+
+  - name: Maven Clinic
+    url: https://boards.greenhouse.io/mavenclinic
+    type: greenhouse
+
+  - name: Garner Health
+    url: https://boards.greenhouse.io/garnerhealth
+    type: greenhouse
+
+  - name: Sword Health
+    url: https://boards.greenhouse.io/swordhealth
+    type: greenhouse
+
+  - name: Zocdoc
+    url: https://boards.greenhouse.io/zocdoc
+    type: greenhouse
+
+  - name: Included Health
+    url: https://boards.greenhouse.io/includedhealth
+    type: greenhouse
+
+  # ══════════════════════════════════════
+  # BIG TECH (10)
+  # ══════════════════════════════════════
+
+  - name: Google
+    url: https://www.google.com/about/careers/applications/jobs/results
+    type: custom
+
+  - name: Microsoft
+    url: https://careers.microsoft.com/global/en/search
+    type: custom
+
+  - name: Amazon
+    url: https://www.amazon.jobs/en/search
+    type: custom
+
+  - name: Apple
+    url: https://jobs.apple.com/en-us/search
+    type: custom
+
+  - name: Meta
+    url: https://www.metacareers.com/jobs/
+    type: custom
+
+  - name: Netflix
+    url: https://jobs.netflix.com/search
+    type: custom
+
+  - name: Snap
+    url: https://careers.snap.com/jobs
+    type: custom
+
+  - name: X (Twitter)
+    url: https://careers.x.com/en/jobs
+    type: custom
+
+  - name: Adobe
+    url: https://careers.adobe.com/us/en/search-results
+    type: custom
+
+  - name: Intuit
+    url: https://jobs.intuit.com/search-jobs
+    type: custom
+
+  # ══════════════════════════════════════
+  # CONSULTING / STRATEGY (5)
+  # ══════════════════════════════════════
+
+  - name: McKinsey
+    url: https://www.mckinsey.com/careers/search-jobs
+    type: custom
+
+  - name: BCG
+    url: https://careers.bcg.com/job-search
+    type: custom
+
+  - name: Bain
+    url: https://www.bain.com/careers/find-a-role/
+    type: custom
+
+  - name: Accenture
+    url: https://www.accenture.com/us-en/careers/jobsearch
+    type: custom
+
+  - name: Deloitte
+    url: https://apply.deloitte.com/careers/SearchJobs
+    type: custom
+
+  # ══════════════════════════════════════
+  # AGGREGATORS (scan these for broad coverage)
+  # ══════════════════════════════════════
+
+  - name: Y Combinator (Work at a Startup)
+    url: https://www.workatastartup.com/jobs
+    type: custom
+    notes: "Covers 1000+ YC startups in one scan"
+
+  - name: Wellfound (AngelList)
+    url: https://wellfound.com/jobs
+    type: custom
+    notes: "Startup job aggregator"
+
+  - name: Hacker News (Who is Hiring)
+    url: https://news.ycombinator.com/submitted?id=whoishiring
+    type: custom
+    notes: "Monthly hiring threads"
+
+  - name: Greenhouse Job Board
+    url: https://job-boards.greenhouse.io/
+    type: greenhouse
+    notes: "Meta-search across all Greenhouse companies"
+
+  - name: Lever Job Board
+    url: https://jobs.lever.co/
+    type: lever
+    notes: "Meta-search across all Lever companies"
+
+  - name: Ashby Job Board
+    url: https://jobs.ashbyhq.com/
+    type: ashby
+    notes: "Meta-search across all Ashby companies"
+
+  - name: Built In
+    url: https://builtin.com/jobs
+    type: custom
+    notes: "Tech job aggregator, filterable by city/role"
+
+  - name: Otta
+    url: https://otta.com/jobs
+    type: custom
+    notes: "Curated startup/tech jobs"
