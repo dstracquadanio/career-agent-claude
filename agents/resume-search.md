@@ -10,7 +10,7 @@ Organize subfolders by city, role type, or whatever makes sense for your workflo
 ## How to Search
 
 1. Use Glob to find PDFs matching company name or role keywords in the resume folder
-2. Search filenames: `{{FIRST_NAME}}_{Company}_{Role}.pdf` for resumes, `*_CoverLetter.pdf` for cover letters
+2. Search filenames: `{{FILE_PREFIX}}_{Company}_{Role}.pdf` for resumes, `{{FILE_PREFIX}}_{Company}_{Role}_CoverLetter.pdf` for cover letters (FILE_PREFIX is `file_prefix` in config.yml, e.g. First_Last)
 3. Focus on files from last 30 days first, then expand if needed
 4. Read PDF content of top matches to assess relevance to the target JD
 

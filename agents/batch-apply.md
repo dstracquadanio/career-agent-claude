@@ -10,6 +10,7 @@ Writing rules: `{{PROJECT_ROOT}}/writing-rules.md`
 Validation: `python3 {{PROJECT_ROOT}}/build_doc.py <script>`
 Measurement: `python3 {{PROJECT_ROOT}}/measure_resume.py <script>`
 Application tracker: `{{PROJECT_ROOT}}/applications.md`
+Output names: `output/{{FILE_PREFIX}}_{Company}_{Role}.pdf` and `..._CoverLetter.pdf` (`file_prefix` in config.yml, e.g. First_Last)
 
 ## MASTER RESUMES (read the actual PDF before choosing)
 
@@ -136,7 +137,7 @@ For each role that needs generation, spawn parallel Agent workers. Each worker d
 - If form found via Playwright, extract questions
 - If no form accessible, generate answers for common questions
 - Write answers following writing-rules.md
-- Save as `{company}_{role}_form_answers.md`
+- Save as `{{FILE_PREFIX}}_{Company}_{Role}_form_answers.md`
 
 ### Step 4: Present Results
 

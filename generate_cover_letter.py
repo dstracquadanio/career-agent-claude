@@ -15,6 +15,7 @@ from reportlab.lib.enums import TA_LEFT, TA_CENTER
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 import os
+import re
 from datetime import date
 
 # ── Font Setup ──
@@ -104,7 +105,10 @@ def generate_cover_letter(output_path, body_text, recipient="Dear Hiring Team,",
     link_color = f'color="#{ACCENT.hexval()[2:]}"'
     contact = [location, phone, email]
     if linkedin_url:
-        contact.append(f'<a href="{linkedin_url}" {link_color}>LinkedIn</a>')
+        # Show the URL (without https:// or www.), not the word "LinkedIn", so it
+        # survives printing and ATS parsing
+        linkedin_text = re.sub(r"^(https?://)?(www\.)?", "", linkedin_url).rstrip("/")
+        contact.append(f'<a href="{linkedin_url}" {link_color}>{linkedin_text}</a>')
     if portfolio_url:
         contact.append(f'<a href="{portfolio_url}" {link_color}>Portfolio</a>')
     story.append(Paragraph(" | ".join(contact), styles["contact"]))

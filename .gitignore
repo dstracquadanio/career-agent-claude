@@ -8,3 +8,6 @@ output/
 # Personal, per-company generator scripts (contain your contact info)
 generate_*_resume.py
 generate_*_cover_letter.py
+
+# Personal application form answers
+*_form_answers.md

@@ -17,6 +17,7 @@ Additional rules:
 4. **Mission/culture (2-3 sentences, ONLY if genuine):** Fintech -> "making financial tools accessible." Healthcare -> "operational excellence." Big tech -> skip, focus on work. NEVER force it.
 5. **Close (1-2 sentences):** Location, brief.
 
+Header: pass the LinkedIn URL from config.yml as `linkedin_url`. It displays as `linkedin.com/in/...` (no https:// or www.), never the bare word "LinkedIn".
 Open: "Dear [Company] Hiring Team," (or "Dear [Name]," if a contact name is known)
 Close: "Best," on one line, {{NAME}} (full name) on the next. In generator scripts, pass `closing="Best,"` and `signature="{{NAME}}"` instead of writing the sign-off into the body.
 

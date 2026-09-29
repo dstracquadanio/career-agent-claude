@@ -76,6 +76,12 @@ master_resumes:
   data_analyst: "masters/da_master.pdf"
   # Add more tracks as needed
 
+# ── Output file naming ──
+# Resumes: {file_prefix}_{Company}_{Role}.pdf
+# Cover letters: {file_prefix}_{Company}_{Role}_CoverLetter.pdf
+# Form answers: {file_prefix}_{Company}_{Role}_form_answers.md
+file_prefix: "First_Last"
+
 # ── Resume Folder ──
 resume_folder: "./resumes/"
 
