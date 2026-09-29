@@ -57,7 +57,7 @@ Resume + Cover Letter PDFs ready
 
 | File | Purpose |
 |------|---------|
-| `generate_resume.py` | Base resume PDF generator (Carlito font, gold headers, justified text) |
+| `generate_resume.py` | Base resume PDF generator (Carlito font, black headers, justified text) |
 | `generate_cover_letter.py` | Base cover letter PDF generator |
 | `build_doc.py` | Validation wrapper — runs validator, then generates PDF only if it passes |
 | `validate_document.py` | Checks banned words, phrases, transitions, AI patterns, page fill, metadata |
@@ -71,7 +71,8 @@ Resume + Cover Letter PDFs ready
 | Agent | Trigger | What it does |
 |-------|---------|-------------|
 | `job-apply` | Paste a JD | Full application orchestrator |
-| `portal-scan` | "scan jobs" | Crawl career pages via Playwright for matching roles |
+| `pinloop-scan` | "find jobs" | Search, count, pull and judge postings with [Pinloop](https://pinloop.ai), shortlist into a tab |
+| `portal-scan` | "scan jobs" | Crawl career pages via Playwright for matching roles (fallback for companies Pinloop doesn't cover) |
 | `form-fill` | "fill [URL]" | Read application forms, generate + fill answers |
 | `batch-apply` | "batch these:" | Process multiple JDs in parallel |
 | `resume-search` | "resume?" | Search existing resumes |
@@ -118,6 +119,28 @@ open output/example_resume.pdf
 # Run through the validator:
 python3 build_doc.py your_resume_generator.py
 ```
+
+## Finding Jobs with Pinloop
+
+[Pinloop](https://pinloop.ai) is a terminal job board that searches postings from employers' career sites and job boards, and judges them against your resume. The `pinloop-scan` agent uses it as the front of the pipeline:
+
+```
+pinloop count → pull → quick screen → full judge → "to-apply" tab
+    ↓
+pinloop fetch (full JD text)
+    ↓
+batch-apply → tailored resume + cover letter PDFs → applications.md
+```
+
+Setup:
+
+```bash
+npm install -g pinloop
+pinloop login
+pinloop profile put resume --file masters/pm_master.pdf
+```
+
+Then tell Claude "find jobs" or "batch my to-apply tab". The free plan hands over 5 new postings a day; run bare `pinloop` to see what's left. Your resume and profile documents are stored on Pinloop's servers and sent to an AI model when postings are judged.
 
 ## Writing Rules
 

@@ -37,8 +37,9 @@ When writing app answers, cover letters, emails, or anything in your voice:
 - Contractions always ("I've" not "I have", "it's" not "it is", "didn't" not "did not")
 - No dashes, use commas instead
 - No buzzwords: leverage, synergies, passionate, excited, thrilled, spearheaded, cutting-edge, innovative
-- Sign off as "Best, {{FIRST_NAME}}" (never full name, never "Best regards")
-- Cover letters: Recipient "Hi," (not "Dear Hiring Manager,")
+- Cover letters: greet with "Dear [Company] Hiring Team," (not "Dear Hiring Manager," or "To Whom It May Concern")
+- Cover letters: sign off with "Best," on one line and {{NAME}} (full name) on the next. Never "Best regards" or "Sincerely"
+- Emails: sign off as "Best, {{FIRST_NAME}}"
 - Emails: "Hey {FirstName}," (never "Dear" or "Mr./Ms.")
 
 ---
@@ -190,7 +191,7 @@ Caught by anti-AI-slop and rage-bait agents. Every one repeats if not banned.
 
 **6. Credential-Dump Closings**
 - Listing certifications as the final paragraph = weakest ending.
-- Fix: Close with opinion, company observation, or just "Best, {{FIRST_NAME}}."
+- Fix: Close with opinion, company observation, or just the sign-off.
 
 **7. "enabled" = Corporate Filler**
 - "enabled non technical stakeholders with product knowledge"

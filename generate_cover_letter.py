@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Cover Letter PDF Generator — Base Template
-Gold name, Carlito font, clean formatting.
+Carlito font, clean formatting, black name and links.
 
 Replace all {{PLACEHOLDER}} values with your own information.
 See config.example.yml for the full list of fields to customize.
@@ -22,6 +22,9 @@ CARLITO_PATH = "/System/Library/PrivateFrameworks/FontServices.framework/Version
 
 GOLD = HexColor("#D4A017")
 BLACK = HexColor("#000000")
+# Color for the name and links. Black by default; set to GOLD or another
+# HexColor for an accent.
+ACCENT = BLACK
 PW, PH = letter
 
 # Cover letter specific sizes
@@ -43,8 +46,13 @@ def register_fonts():
         return "Helvetica"
 
 
-def generate_cover_letter(output_path, body_text, recipient="Hi,", location="New York, NY",
-                          title=None, subject=None, keywords=None):
+def generate_cover_letter(output_path, body_text, recipient="Dear Hiring Team,",
+                          location="New York, NY", title=None, subject=None, keywords=None,
+                          name="YOUR NAME", phone="{{PHONE}}", email="{{EMAIL}}",
+                          linkedin_url="{{LINKEDIN_URL}}", portfolio_url="{{PORTFOLIO_URL}}",
+                          closing="Best,", signature=None):
+    """signature: the name printed on the line below `closing`. Leave it as None
+    only if body_text already ends with its own sign-off."""
     font_name = register_fonts()
     fnb = f"{font_name}-Bold" if font_name == "Carlito" else "Helvetica-Bold"
 
@@ -55,8 +63,8 @@ def generate_cover_letter(output_path, body_text, recipient="Hi,", location="New
         rightMargin=MARGIN_LR,
         topMargin=MARGIN_TB,
         bottomMargin=MARGIN_TB,
-        title=title or "{{NAME}} - Cover Letter",
-        author="{{NAME}}",
+        title=title or f"{name} - Cover Letter",
+        author=name,
         subject=subject or "Cover Letter",
         keywords=keywords or [],
     )
@@ -65,7 +73,7 @@ def generate_cover_letter(output_path, body_text, recipient="Hi,", location="New
         "name": ParagraphStyle(
             "name", fontName=fnb, fontSize=SZ_NAME,
             alignment=TA_LEFT, leading=SZ_NAME + 4,
-            textColor=GOLD,
+            textColor=ACCENT,
         ),
         "contact": ParagraphStyle(
             "contact", fontName=font_name, fontSize=SZ_SMALL,
@@ -91,16 +99,15 @@ def generate_cover_letter(output_path, body_text, recipient="Hi,", location="New
 
     story = []
 
-    # ── Header: Gold name ──
-    story.append(Paragraph("YOUR NAME", styles["name"]))
-    story.append(Paragraph(
-        f"{location} | {{{{PHONE}}}} | {{{{EMAIL}}}} | "
-        f'<a href="{{{{LINKEDIN_URL}}}}" '
-        f'color="#{GOLD.hexval()[2:]}">LinkedIn</a> | '
-        f'<a href="{{{{PORTFOLIO_URL}}}}" '
-        f'color="#{GOLD.hexval()[2:]}">Portfolio</a>',
-        styles["contact"],
-    ))
+    # ── Header: name ──
+    story.append(Paragraph(name.upper(), styles["name"]))
+    link_color = f'color="#{ACCENT.hexval()[2:]}"'
+    contact = [location, phone, email]
+    if linkedin_url:
+        contact.append(f'<a href="{linkedin_url}" {link_color}>LinkedIn</a>')
+    if portfolio_url:
+        contact.append(f'<a href="{portfolio_url}" {link_color}>Portfolio</a>')
+    story.append(Paragraph(" | ".join(contact), styles["contact"]))
 
     # ── Date ──
     story.append(Spacer(1, 20))
@@ -117,6 +124,10 @@ def generate_cover_letter(output_path, body_text, recipient="Hi,", location="New
         clean = para.replace("\n", " ")
         story.append(Paragraph(clean, styles["body"]))
 
+    # ── Sign-off: closing and name on separate lines ──
+    if signature:
+        story.append(Paragraph(f"{closing}<br/>{signature}", styles["body"]))
+
     # ── Build ──
     doc.build(story)
     print(f"Cover letter generated: {output_path}")
@@ -126,11 +137,10 @@ if __name__ == "__main__":
     # Example usage with placeholder text
     cover_letter_text = """This is a sample cover letter body. Replace this with your actual cover letter text tailored to the specific role and company.
 
-Your cover letter should be 3-5 paragraphs, conversational in tone, and specific to the company you're applying to. Lead with what you've built, not what you want.
-
-Best, {{FIRST_NAME}}"""
+Your cover letter should be 3-5 paragraphs, conversational in tone, and specific to the company you're applying to. Lead with what you've built, not what you want."""
 
     output = os.path.join(os.path.dirname(__file__), "output", "cover_letter.pdf")
     os.makedirs(os.path.dirname(output), exist_ok=True)
-    generate_cover_letter(output, cover_letter_text, recipient="Hi,", location="New York, NY")
+    generate_cover_letter(output, cover_letter_text, recipient="Dear Hiring Team,",
+                          location="New York, NY", signature="{{NAME}}")
     print("Done!")

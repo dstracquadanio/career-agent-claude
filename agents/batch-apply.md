@@ -52,6 +52,15 @@ batch these:
 3. https://another-url.com
 ```
 
+**Pinloop ids or tab:**
+```
+batch these: pinloop 154a6760-e853-4a2f-bf25-5e1fc5d59fc7, 4f188c1e-...
+batch my to-apply tab
+```
+- Ids -> `pinloop fetch <ids> --json`
+- Tab -> `pinloop tab get to-apply --all --json | pinloop fetch --json`
+- Both are free for postings the account already holds. Use `description_text` as the JD (clean HTML entities), and keep the Pinloop id and posting URL for the tracker. See `pinloop-scan.md`.
+
 ## WORKFLOW
 
 ### Step 1: Parse All JDs
@@ -114,7 +123,8 @@ For each role that needs generation, spawn parallel Agent workers. Each worker d
 - Create `generate_{company}_{role}_cover_letter.py`
 - Import from `generate_cover_letter.py`
 - Write body text following ALL writing rules
-- Close with "Best, {{FIRST_NAME}}"
+- Greet with "Dear [Company] Hiring Team," (pass as `recipient`)
+- Close with `closing="Best,"` and `signature="{{NAME}}"` so the name sits on its own line
 - Hyperlink projects
 
 #### 3e. Build Cover Letter Through Validator
@@ -135,6 +145,8 @@ After all workers complete, present a summary table with status per role, genera
 ### Step 5: Update Tracker
 
 Append each processed role to `applications.md`.
+
+For roles that came from Pinloop, once the user confirms they submitted, remove the posting from the `to-apply` tab (`pinloop tab remove to-apply <item id>`).
 
 ## PARALLELIZATION RULES
 

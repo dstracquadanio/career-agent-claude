@@ -92,7 +92,8 @@ preferences:
 # ── Writing Style ──
 # These control the validator and cover letter tone
 writing:
-  signoff: "Best, {{first_name}}"
-  greeting: "Hi,"
+  signoff: "Best,"          # printed on its own line, full name below it
+  signature: "{{name}}"
+  greeting: "Dear {company} Hiring Team,"
   max_cover_letter_chars: 2000
   use_contractions: true
