@@ -27,7 +27,8 @@ from generate_cover_letter import generate_cover_letter
 #   - No banned words/phrases/transitions
 #   - Open with what you built, not "I'm interested in..."
 #   - 3-5 paragraphs, 200-350 words
-#   - Close with "Best, [Name]"
+#   - Greet with "Dear [Company] Hiring Team,"
+#   - Close with "Best," and your full name on the next line (closing/signature args)
 #   - Hyperlink projects with <a> tags
 #   - One opinion minimum
 #   - Vary paragraph lengths (don't make every paragraph 4 sentences)
@@ -40,9 +41,7 @@ The data validation side is equally natural. I built automated pipelines that ca
 
 Before that, I managed a project portfolio where the main challenge was getting five different teams to agree on priorities. I ran the weekly status reviews, maintained the risk logs, and built the executive dashboards leadership used to track delivery. The billing reconciliation work alone saved $170K annually.
 
-I think Acme's approach to data infrastructure is right. Most companies I've seen treat BI as an afterthought. Building it into the product from day one changes what's possible downstream.
-
-Best, YourName"""
+I think Acme's approach to data infrastructure is right. Most companies I've seen treat BI as an afterthought. Building it into the product from day one changes what's possible downstream."""
 
 if __name__ == "__main__":
     output = os.path.join(
@@ -52,7 +51,9 @@ if __name__ == "__main__":
     generate_cover_letter(
         output,
         body_text=BODY,
-        recipient="Hi,",
+        recipient="Dear Acme Corp Hiring Team,",
+        closing="Best,",
+        signature="Your Name",
         location="New York, NY",
         # ATS metadata — always set these
         title="Your Name - Cover Letter - Acme Corp Business Analyst",

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Resume PDF Generator — Base Template
-Carlito font, gold headers, one page, justified text.
+Carlito font, black headers, one page, justified text.
 
 Replace all {{PLACEHOLDER}} values with your own information.
 See config.example.yml for the full list of fields to customize.
@@ -38,6 +38,9 @@ def register_fonts():
 # ── Constants ──
 GOLD = HexColor("#D4A017")
 BLACK = HexColor("#000000")
+# Color for section headers and links. Black by default; set to GOLD or another
+# HexColor for an accent.
+ACCENT = BLACK
 PW, PH = letter
 
 SZ_NAME = 15
@@ -76,7 +79,7 @@ def build_styles(font_name):
         "section_header": ParagraphStyle(
             "section_header", fontName=fnb, fontSize=SZ_HDR,
             alignment=TA_LEFT, leading=SZ_HDR + 3,
-            textColor=GOLD, spaceBefore=SECTION_GAP, spaceAfter=2,
+            textColor=ACCENT, spaceBefore=SECTION_GAP, spaceAfter=2,
         ),
         "job_line": ParagraphStyle(
             "job_line", fontName=fn, fontSize=SZ_JOB,
@@ -118,7 +121,7 @@ def build_styles(font_name):
     return styles
 
 
-def make_link(url, text, color=GOLD):
+def make_link(url, text, color=ACCENT):
     return f'<a href="{url}" color="#{color.hexval()[2:]}">{text}</a>'
 
 

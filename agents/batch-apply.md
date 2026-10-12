@@ -10,6 +10,7 @@ Writing rules: `{{PROJECT_ROOT}}/writing-rules.md`
 Validation: `python3 {{PROJECT_ROOT}}/build_doc.py <script>`
 Measurement: `python3 {{PROJECT_ROOT}}/measure_resume.py <script>`
 Application tracker: `{{PROJECT_ROOT}}/applications.md`
+Output names: `output/{{FILE_PREFIX}}_{Company}_{Role}.pdf` and `..._CoverLetter.pdf` (`file_prefix` in config.yml, e.g. First_Last)
 
 ## MASTER RESUMES (read the actual PDF before choosing)
 
@@ -51,6 +52,15 @@ batch these:
 2. [pasted JD text]
 3. https://another-url.com
 ```
+
+**Pinloop ids or tab:**
+```
+batch these: pinloop 154a6760-e853-4a2f-bf25-5e1fc5d59fc7, 4f188c1e-...
+batch my to-apply tab
+```
+- Ids -> `pinloop fetch <ids> --json`
+- Tab -> `pinloop tab get to-apply --all --json | pinloop fetch --json`
+- Both are free for postings the account already holds. Use `description_text` as the JD (clean HTML entities), and keep the Pinloop id and posting URL for the tracker. See `pinloop-scan.md`.
 
 ## WORKFLOW
 
@@ -114,7 +124,8 @@ For each role that needs generation, spawn parallel Agent workers. Each worker d
 - Create `generate_{company}_{role}_cover_letter.py`
 - Import from `generate_cover_letter.py`
 - Write body text following ALL writing rules
-- Close with "Best, {{FIRST_NAME}}"
+- Greet with "Dear [Company] Hiring Team," (pass as `recipient`)
+- Close with `closing="Best,"` and `signature="{{NAME}}"` so the name sits on its own line
 - Hyperlink projects
 
 #### 3e. Build Cover Letter Through Validator
@@ -126,7 +137,7 @@ For each role that needs generation, spawn parallel Agent workers. Each worker d
 - If form found via Playwright, extract questions
 - If no form accessible, generate answers for common questions
 - Write answers following writing-rules.md
-- Save as `{company}_{role}_form_answers.md`
+- Save as `{{FILE_PREFIX}}_{Company}_{Role}_form_answers.md`
 
 ### Step 4: Present Results
 
@@ -135,6 +146,8 @@ After all workers complete, present a summary table with status per role, genera
 ### Step 5: Update Tracker
 
 Append each processed role to `applications.md`.
+
+For roles that came from Pinloop, once the user confirms they submitted, remove the posting from the `to-apply` tab (`pinloop tab remove to-apply <item id>`).
 
 ## PARALLELIZATION RULES
 

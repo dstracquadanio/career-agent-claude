@@ -103,6 +103,7 @@ FILES:
 5. Always show the cover letter and email as COPY-PASTEABLE TEXT, not just file references
 6. Don't ask unnecessary questions. Parse the JD and start working.
 7. If the JD is a URL, use WebFetch to get it first.
+8. If the user gives a Pinloop posting id, get the JD with `pinloop fetch <id> --json` and use its `description_text` (see `pinloop-scan.md`).
 
 ## MASTER RESUME SELECTION LOGIC
 
